@@ -1,0 +1,68 @@
+{
+  "version": 1,
+  "sdk_version": "3.0.5",
+  "path": "/mcp",
+  "auth": {
+    "type": "none"
+  },
+  "mcp": {
+    "server": {
+      "name": "critique-craft",
+      "version": "0.1.0",
+      "title": "Critique Craft"
+    },
+    "tools": [
+      {
+        "name": "review_project",
+        "title": "Review project description",
+        "description": "Get a direct, structured critique (clarity, impact, audience fit, evidence gaps, reviewer questions, rewrite) of a project description. Nothing is stored.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": false,
+          "openWorldHint": true
+        },
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "goal": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 2000,
+              "description": "What problem the project tried to solve."
+            },
+            "audience": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 500,
+              "description": "Who will read it, as a role (e.g. VP of Sales)."
+            },
+            "delivered": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 3000,
+              "description": "What was built or delivered."
+            },
+            "measured": {
+              "type": "string",
+              "maxLength": 2000,
+              "description": "How success was measured."
+            },
+            "differently": {
+              "type": "string",
+              "maxLength": 2000,
+              "description": "What would be done differently."
+            }
+          },
+          "required": [
+            "goal",
+            "audience",
+            "delivered"
+          ],
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        },
+        "outputSchema": null
+      }
+    ]
+  }
+}
