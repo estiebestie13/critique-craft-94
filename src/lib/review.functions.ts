@@ -1,4 +1,5 @@
-import { createServerFn, getRequestIP } from "@tanstack/react-start";
+import { createServerFn } from "@tanstack/react-start";
+import { getRequestIP } from "@tanstack/start-server-core";
 import { z } from "zod";
 
 const schema = z.object({
